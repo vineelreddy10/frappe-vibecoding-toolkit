@@ -1,0 +1,27 @@
+{
+  "apps": [
+    {
+      "url": "https://github.com/frappe/frappe",
+      "branch": "version-16"
+    },
+    {
+      "url": "https://github.com/[ORG]/[APP_NAME]",
+      "branch": "main"
+    }
+  ]
+}
+```
+
+## Usage
+
+1. Replace `[ORG]` and `[APP_NAME]`
+2. Save as `apps.json` in frappe_docker root
+3. Encode: `APPS_JSON_BASE64=$(base64 -w 0 apps.json)`
+4. Build: `docker build --build-arg=APPS_JSON_BASE64=$APPS_JSON_BASE64 ...`
+
+## Notes
+
+- First entry is ALWAYS frappe
+- Additional entries are your custom apps
+- Branch should match production branch
+- version-16 is current stable (2026)

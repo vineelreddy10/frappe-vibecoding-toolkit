@@ -1,0 +1,48 @@
+{
+  "name": "frappe-vibecoding-toolkit",
+  "version": "1.0.0",
+  "description": "Generic Frappe vibecoding toolkit — patterns, templates, agents, and prompts for building ANY Frappe custom app with best practices baked in.",
+  "author": "Frappe Vibecoding Community",
+  "license": "MIT",
+  "repository": "https://github.com/vineelreddy10/frappe-vibecoding-toolkit",
+  "keywords": [
+    "frappe",
+    "erpnext",
+    "docker",
+    "deployment",
+    "testing",
+    "playwright",
+    "react",
+    "doppio",
+    "rbac",
+    "vibecoding",
+    "saas",
+    "custom-app"
+  ],
+  "supported_tools": [
+    "frappe-bench",
+    "docker",
+    "docker-compose",
+    "playwright",
+    "vite",
+    "react",
+    "typescript"
+  ],
+  "skills": [
+    "frappe-backend",
+    "frappe-frontend",
+    "frappe-deployment",
+    "frappe-testing",
+    "frappe-operations"
+  ],
+  "agents": [
+    "planner",
+    "executor",
+    "tester",
+    "debugger"
+  ],
+  "dependencies": {
+    "opencode": ">=1.0.0",
+    "oh-my-opencode": ">=1.0.0"
+  }
+}
