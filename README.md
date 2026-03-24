@@ -50,16 +50,42 @@ A generic Opencode plugin for building ANY Frappe custom app — ERP, SaaS, HES,
 | `apps-json-template.json` | Docker deployment config |
 | `deployment-checklist.md` | Pre/post deploy checks |
 
-## Quick Start
+## ⚡ One Command Setup
 
-### 1. Install
+```bash
+git clone https://github.com/vineelreddy10/frappe-vibecoding-toolkit.git
+cd frappe-vibecoding-toolkit
+./install.sh
+```
+
+This automatically:
+- Installs plugin to `~/.config/opencode/skills/`
+- Configures all MCPs (oh-my-opencode, context7, shadcn, playwright, filesystem)
+- Sets up opencode.json and oh-my-opencode.json
+- Verifies environment
+
+### Alternative: Via Opencode Prompt
+
+```
+Use setup-environment prompt to bootstrap my environment
+```
+
+### Manual Install
 
 ```bash
 cd ~/.config/opencode/skills
 git clone https://github.com/vineelreddy10/frappe-vibecoding-toolkit.git frappe-vibecoding
+cd frappe-vibecoding
+bash mcp/install-mcps.sh
 ```
 
-### 2. Use
+### Verify Installation
+
+```bash
+bash mcp/verify-mcps.sh
+```
+
+### Use
 
 ```
 Use frappe-backend skill to create a DocType
@@ -67,7 +93,7 @@ Use build-feature prompt to build a notification system
 Use deployment-prompt to deploy to my VPS
 ```
 
-### 3. Customize
+### Customize
 
 Replace `[PLACEHOLDERS]` in prompts and templates with your app specifics.
 
@@ -101,12 +127,29 @@ All prompts and templates use `[PLACEHOLDERS]`:
 - ✅ Internal tools
 - ✅ Any custom Frappe app
 
+### MCPs (5)
+
+| MCP | Type | Purpose |
+|-----|------|---------|
+| `oh-my-opencode` | npm | Plugin system with agents and categories |
+| `context7` | remote | Real-time documentation lookup |
+| `shadcn` | local | shadcn/ui component discovery |
+| `playwright` | local | Browser automation for E2E testing |
+| `filesystem` | local | File system operations |
+
 ## File Structure
 
 ```
 frappe-vibecoding-toolkit/
 ├── README.md
+├── LICENSE
+├── install.sh                      ← One-command setup
 ├── plugin.json
+├── mcp/
+│   ├── mcp-config.json             ← MCP definitions
+│   ├── mcp-config.schema.json      ← Config schema
+│   ├── install-mcps.sh             ← MCP installer
+│   └── verify-mcps.sh              ← Environment verifier
 ├── skills/
 │   ├── frappe-backend.md
 │   ├── frappe-frontend.md
@@ -119,6 +162,7 @@ frappe-vibecoding-toolkit/
 │   ├── tester.md
 │   └── debugger.md
 ├── prompts/
+│   ├── setup-environment.md        ← Bootstrap prompt
 │   ├── build-feature.md
 │   ├── create-doctype.md
 │   ├── create-api.md

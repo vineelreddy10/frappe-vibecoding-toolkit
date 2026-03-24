@@ -1,7 +1,7 @@
 {
   "name": "frappe-vibecoding-toolkit",
-  "version": "1.0.0",
-  "description": "Generic Frappe vibecoding toolkit — patterns, templates, agents, and prompts for building ANY Frappe custom app with best practices baked in.",
+  "version": "1.1.0",
+  "description": "Generic Frappe vibecoding toolkit — patterns, templates, agents, prompts, and MCP setup for building ANY Frappe custom app with best practices baked in.",
   "author": "Frappe Vibecoding Community",
   "license": "MIT",
   "repository": "https://github.com/vineelreddy10/frappe-vibecoding-toolkit",
@@ -17,7 +17,8 @@
     "rbac",
     "vibecoding",
     "saas",
-    "custom-app"
+    "custom-app",
+    "mcp"
   ],
   "supported_tools": [
     "frappe-bench",
@@ -41,8 +42,54 @@
     "tester",
     "debugger"
   ],
+  "prompts": [
+    "setup-environment",
+    "build-feature",
+    "create-doctype",
+    "create-api",
+    "create-frontend-page",
+    "testing-prompt",
+    "deployment-prompt",
+    "debugging-prompt"
+  ],
+  "mcps": [
+    {
+      "name": "oh-my-opencode",
+      "type": "npm",
+      "required": true
+    },
+    {
+      "name": "context7",
+      "type": "remote",
+      "required": false
+    },
+    {
+      "name": "shadcn",
+      "type": "local",
+      "required": false
+    },
+    {
+      "name": "playwright",
+      "type": "local",
+      "required": false
+    },
+    {
+      "name": "filesystem",
+      "type": "local",
+      "required": false
+    }
+  ],
+  "setup": {
+    "install_script": "install.sh",
+    "mcp_config": "mcp/mcp-config.json",
+    "setup_prompt": "prompts/setup-environment.md"
+  },
   "dependencies": {
     "opencode": ">=1.0.0",
     "oh-my-opencode": ">=1.0.0"
+  },
+  "requirements": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
   }
 }

@@ -1,0 +1,51 @@
+{
+  "$schema": "./mcp-config.schema.json",
+  "version": "1.0.0",
+  "description": "MCP configuration for Frappe Vibecoding Toolkit",
+  "mcps": [
+    {
+      "name": "oh-my-opencode",
+      "description": "Plugin system for OpenCode with agents, categories, and skills",
+      "repo": "https://github.com/code-yeongyu/oh-my-opencode",
+      "type": "npm",
+      "package": "oh-my-opencode@latest",
+      "required": true
+    },
+    {
+      "name": "context7",
+      "description": "Real-time documentation and code examples from official sources",
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "DEFAULT_MINIMUM_TOKENS": "10000"
+      },
+      "required": false
+    },
+    {
+      "name": "shadcn",
+      "description": "shadcn/ui component discovery and installation",
+      "type": "local",
+      "command": ["npx", "-y", "@jpisnice/shadcn-ui-mcp-server"],
+      "required": false
+    },
+    {
+      "name": "playwright",
+      "description": "Browser automation for testing and verification",
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp"],
+      "required": false
+    },
+    {
+      "name": "filesystem",
+      "description": "File system operations for OpenCode",
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/"],
+      "required": false
+    }
+  ],
+  "opencode_config": {
+    "config_path": "~/.config/opencode/opencode.json",
+    "oh_my_opencode_path": "~/.config/opencode/oh-my-opencode.json",
+    "skills_path": "~/.config/opencode/skills"
+  }
+}
